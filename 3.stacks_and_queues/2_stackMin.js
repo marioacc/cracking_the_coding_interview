@@ -1,59 +1,30 @@
-var Stack =  require('./Stack');
+let  Stack  = require ('./Stack');
 
-class StackWithMin extends Stack{
-    constructor() {
-        super();
-        this.s2 = new Stack();
-    }
 
-    push(data){
-        if (data < this.min()){
-            this.s2.push(data)
-        }
-        super.push(data);
+/**
+ * Min stack wraps the Stack class and uses id to store all the elements
+ * while storing the minimun number in a variable inside of the class
+ * and checking every push to update the that variable with the
+ * new minimum value
+ *
+ */
+
+class MinStack{
+    constructor (){
+        this.stack = new Stack();
+        this.min = Number.POSITIVE_INFINITY;
     }
 
     pop(){
-        let data =  super.pop();
-        if (data === this.min()){
-            this.s2.pop();
-        }
-        return data;
+        return this.stack.pop();
     }
 
-    min(){
-        if(this.s2.isEmpty()){
-            return Number.MAX_SAFE_INTEGER;
-        }else{
-            return this.s2.peek();
-        }
-    }
-
-    print() {
-        let runner = this.top;
-        let minStackRunner = this.s2.top; 
-        let stringStack = 'Stack : ';
-        let minStringStack = 'Min Stack : '
-        while (runner.next !== null) {
-            stringStack += runner.data + ' -> ';
-            runner = runner.next;
-        }
-        stringStack += runner.data;
-        while (minStackRunner.next !== null) {
-            minStringStack += minStackRunner.data + ' -> ';
-            minStackRunner = minStackRunner.next;
-        }
-        minStringStack +=minStackRunner.data;
+    push(elementToPushIn){
+        this.stack.push(elementToPushIn);
+        this.min = Math.min(this.min,elementToPushIn);
         
-        return stringStack+'\n'+minStringStack;
+    }
+    getMin(){
+        return this.min;
     }
 }
-
-let stack = new StackWithMin();
-
-stack.push(5);
-stack.push(4);
-stack.push(3);
-stack.push(6);
-stack.push(1);
-console.info(stack.print())
