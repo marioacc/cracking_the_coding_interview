@@ -1,30 +1,51 @@
-let  Stack  = require ('./Stack');
+let Stack = require('./Stack');
 
 
 /**
- * Min stack wraps the Stack class and uses id to store all the elements
- * while storing the minimun number in a variable inside of the class
- * and checking every push to update the that variable with the
- * new minimum value
+ * Min stack wraps the Stack Class and stores an object in it
+ * containing the value of the element added to the stack and 
+ * the minimum value added to up to that moment in the stack
  *
  */
 
-class MinStack{
-    constructor (){
+class MinStack {
+    constructor() {
         this.stack = new Stack();
-        this.min = Number.POSITIVE_INFINITY;
     }
 
-    pop(){
+    pop() {
         return this.stack.pop();
     }
 
-    push(elementToPushIn){
-        this.stack.push(elementToPushIn);
-        this.min = Math.min(this.min,elementToPushIn);
-        
+    push(elementToPushIn) {
+        var minimum = Number.POSITIVE_INFINITY;
+        try {
+            minimum = this.peek().min;
+        }catch(e){} finally {
+            var elementWrapper = {
+                value: elementToPushIn,
+                min: Math.min(minimum, elementToPushIn),
+            }
+            this.stack.push(elementWrapper);
+        }
+
+
     }
-    getMin(){
-        return this.min;
+
+    peek() {
+        return this.stack.peek()
+    }
+
+    getMin() {
+        return this.peek().min;
     }
 }
+
+    let minStack = new MinStack()
+    minStack.push(1)
+    minStack.push(2)
+    minStack.push(3)
+    minStack.push(4)
+    minStack.push(5)
+
+    console.log(minStack.getMin())
