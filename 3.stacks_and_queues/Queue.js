@@ -43,3 +43,5 @@ class Queue {
         return this.first === null;
     }
 }
+
+module.exports = Queue;
