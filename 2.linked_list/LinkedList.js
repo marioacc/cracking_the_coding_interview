@@ -2,19 +2,24 @@ class Node {
     constructor(data) {
         this.data = data;
         this.next=null;
+        this.prev = null;
     }
 
 }
 
 class LinkedList{
     constructor(data){
-        this.head = new Node(data)
+        this.head = data!== undefined ? new Node(data) : null;
+        this.tail = this.head;
     }
 
     appendToTail(newNodeData) {
-        let newNode = new Node(newNodeData);
+        let newTail = new Node(newNodeData);
         let tail = this._getTail();    
-        tail.next = newNode;
+        tail.next = newTail;
+        newTail.prev = tail;
+        tail = newTail;
+        
     }
 
     appendFromArray(array){
@@ -26,11 +31,7 @@ class LinkedList{
     }
 
     _getTail(){
-        let node = this.head;
-        while (node.next) {
-            node = node.next;
-        }
-        return node;
+        return this.tail;
     }
 
     printList(){
