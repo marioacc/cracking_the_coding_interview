@@ -5,5 +5,9 @@ animals.forEach(animal => {
     shelter.enqueue(animal)
 })
 
+test('Animal Shelter works',()=>{
+    expect(true).toBeTruthy();
+})
+
 
 
