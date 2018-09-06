@@ -14,20 +14,25 @@ class LinkedList{
     }
 
     appendToTail(newNodeData) {
-        let newTail = new Node(newNodeData);
-        let tail = this._getTail();    
-        tail.next = newTail;
-        newTail.prev = tail;
-        tail = newTail;
+        let newNode = new Node(newNodeData);
+        if(this.head === null){
+            this.head = newNode;
+            this.tail = this.head;
+            return;
+        }
+           
+        this.tail.next = newNode;
+        newNode.prev = this.tail;
+        this.tail = newNode;
         
     }
 
     appendFromArray(array){
-        let tail = this._getTail();
         array.forEach(function(e){
-            tail.next = new Node(e);
-            tail = tail.next
+            this.appendToTail(e);
+            
         }.bind(this))
+        return this;
     }
 
     _getTail(){
