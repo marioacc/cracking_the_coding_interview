@@ -15,11 +15,12 @@ function binaryToString(num) {
         }
         const r = 2 * num;
 
-        if (r > 1) {
+        if (r >= 1) {
             binary += '1';
             num = r - 1;
         } else {
             binary += '0';
+            num = r;
         }
 
     }
