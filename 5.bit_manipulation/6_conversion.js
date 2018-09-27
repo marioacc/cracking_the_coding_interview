@@ -8,9 +8,11 @@ function getBitsToChange(a, b) {
     let countBits = 0;
     let differentBits = a ^ b;
     while (differentBits !== 0) {
-        countBits += (differentBits & 1);
+        countBits ++;
         differentBits = differentBits & (differentBits - 1);
     }
     return countBits;
 
 }
+
+module.exports = getBitsToChange
