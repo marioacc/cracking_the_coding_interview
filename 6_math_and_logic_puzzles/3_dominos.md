@@ -1,0 +1,2 @@
+The chessboard originally has 32 black and 32 white squares. By removing opposite corners, which should be of the same color, we're left with 30 of one color and 32 of the other color. So we are left with 30 black and 32 white squares.
+No matter how you place a domino, it will always take one black square and one white square, so 31 dominos will take 31 black and 31 white squares, and we only have 30 black and 30 white, so it will be impossible.
