@@ -1,0 +1,5 @@
+- Case c=1: assuming that there is only one blue eyed person in the island, this person will know that it is itself when he notices no one has leaved the island even when they where told there were blue eyed people there
+
+- Case c=2: assuming there are two persons in the island, they know that from the previous case if there is someone blue eyed in the island that person would have leaved the previous night, however if there is another plane in the island and no onde leaves, the last blue eyed person in the island is her/him.
+
+- Case c>2:assuming the there are multiple blue eye persons in the island,  those 3 people would immediately know that there are other two blue eyed persons in the island. Once there are two blue-eyed people in the island they would know the existence of the other one and if there is a last plane and no one leaves, they should be the last ones.
