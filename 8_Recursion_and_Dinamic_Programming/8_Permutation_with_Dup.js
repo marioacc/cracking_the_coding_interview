@@ -22,8 +22,9 @@ function _printPerms(map, prefix, remainig, result) {
     for (let c in map) {
         let count = map[c];
         if (count > 0) {
-            map[c] = c - 1;
+            map[c] = count - 1;
             _printPerms(map, prefix + c, remainig - 1, result);
+            map[c] = count
         }
     }
 }
