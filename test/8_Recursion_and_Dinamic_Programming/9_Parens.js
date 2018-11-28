@@ -7,5 +7,5 @@ test('1 pair of parens is ()', () => {
 })
 
 test('2 pairs of parens are ()() (()) ', () => {
-    expect(parens(1).join(',')).toBe('()(),(())');
+    expect(parens(2).join(',')).toBe('(()),()()');
 })
