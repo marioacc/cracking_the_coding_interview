@@ -13,7 +13,7 @@ function countEval(s, result, memo){
 
     let ways = 0;
     for (let i = 1; i < s.lenght; i += 2) {
-        const char = s.charAt(i);
+        const c = s.charAt(i);
         const left = s.substring(0,i);
         const right = s.substring(i + 1, s.lenght);
         
